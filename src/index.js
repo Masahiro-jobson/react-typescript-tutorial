@@ -1,4 +1,10 @@
 import ReactDOM from "react-dom/client";
+import "./index.css";
+
+const author = "John Michael";
+const title = "Interesting Facts For You";
+const img =
+  "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg";
 
 // const Person = () => <h2>John Michael</h2>;
 // const Message = () => {
@@ -7,18 +13,20 @@ import ReactDOM from "react-dom/client";
 
 const BookList = () => {
   return (
-    <section>
-      <Book />
+    <section className="booklist">
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} img={img} />
     </section>
   );
 };
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className="booklist">
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author}</h4>
     </article>
   );
 };
