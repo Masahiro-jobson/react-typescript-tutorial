@@ -81,11 +81,44 @@
 // let orderStatus: 'processing' | 'shipped' | 'delivered' = 'processing'; 
 
 // Array
-let number: number[] = [1,2,3,4,5];
+// let number: number[] = [1,2,3,4,5];
 
-let fruit: string[] = ['apple', 'banana', 'orange', 'grape', 'mango' ];
+// let fruit: string[] = ['apple', 'banana', 'orange', 'grape', 'mango' ];
 
-let emptyValues: number[]  = [];
+// let emptyValues: number[]  = [];
 
-let name = ["Masahiro", "Togasaki", "John", 2];
-let array: (string | boolean)[] = ["Banana", true, "Strawberry", false,];
+// let names = ["Masahiro", "Togasaki", "John", 2];
+// let array: (string | boolean)[] = ["Banana", true, "Strawberry", false,];
+
+// let temperatures: number [] = [30, 25, 28, 32, 27];
+
+// let colors: string [] = ['red', 'green', 'blue', 'yellow', 'purple'];
+// // colors.push(true);
+
+// let mixedArray: (number | string)[] = [1, 'two', 3, 'four', 5];
+
+// // Objects
+// let car: { brand: string; year: number} = { brand: 'toyota', year: 2020};
+// car.brand = 'suzuki';
+// // car.color = 'red';
+
+// let car1: { brand: string; year: number} = { brand: 'audi', year: 2026};
+
+// let book = {title: 'book', cost: 20}
+// let pen = {title: 'pen', cost: 10}
+// let notebook = {title: 'notebook', cost: 15}
+
+// let items:{readonly title:string; cost: number} [] = [book, pen, notebook];
+// // items{0}.title = 'new book';
+
+// let bike: {brand: string; year: number} = {brand: 'yamaha', year: 2010}
+// // bike.year= 'old';
+// let laptop: {brand: string; year: number} = {brand: 'lenovo', year: 2010}
+// // let laptop2: {brand: string; year: number} = {brand: 'Panasonic', year: 2010}
+
+// let product1 = {title: 'shirt', price: 20}
+// let product2 = {title: 'pants', price: 30}
+// // ?: makes the price property optional, meaning that it may or may not be present in the objects of the products array.
+// let products: {title: string; price?: number} [] = [product1, product2]
+
+// products.push({title: 'shoes'})
