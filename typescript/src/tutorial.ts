@@ -159,16 +159,44 @@
 
 // someValue.myMethod();
 
-const names: string[] = ['Jack', 'James', 'Charlie'];
+// const names: string[] = ['Jack', 'James', 'Charlie'];
 
-function isNameInList(name: string): boolean {
-    return names.includes(name);
-}
+// function isNameInList(name: string): boolean {
+//     return names.includes(name);
+// }
 
-let nameToCheck = 'John';
+// let nameToCheck = 'John';
 
-if (isNameInList(nameToCheck)) {
-    console.log(`${nameToCheck} is in the list.`);
-} else {
-    console.log(`${nameToCheck} is not in the list.`);
-}
+// if (isNameInList(nameToCheck)) {
+//     console.log(`${nameToCheck} is in the list.`);
+// } else {
+//     console.log(`${nameToCheck} is not in the list.`);
+// }
+
+// function calculatePrice(price:number,discount?:number): number {
+//     return price -(discount|| 0);
+// }
+
+// let priceAfterDiscount = calculatePrice(100, 20);
+
+// function calculateTotal(initialScore:number, penaltyPoints:number = 0): number {
+//     return initialScore - penaltyPoints;
+// }
+
+// let scoreAfterPenalty = calculateTotal(100, 20);
+// let scoreWithoutPenalty = calculateTotal(300);
+
+// Rest Parameter
+// function sum (message:string,...numbers:number[]): string {
+//     const doubled = numbers.map ((num)=> num * 2);
+//     console.log(doubled);
+
+//     let total = numbers.reduce((previous, current)=>{
+//         return previous + current
+//     }, 0)
+//     return `${message} ${total}`;
+
+// }
+
+// let result = sum('The total is : ', 1,2,3,4,5);
+// console.log(result);
