@@ -200,3 +200,239 @@
 
 // let result = sum('The total is : ', 1,2,3,4,5);
 // console.log(result);
+
+// For when there is no returned value, what will be returned.
+// function logMessage(message: string):void{
+//     console.log(message);
+    
+// }
+
+// logMessage('Hello, TypeScript!');
+
+
+// Type Guards
+// function processInput(input: number | string): void {
+//     if(typeof input === 'number'){
+//     console.log(input*2);
+//     } else{
+//     console.log(input.toUpperCase());
+//     }
+// }
+
+// processInput(10)
+// processInput('Hello')
+
+// we have 2 carly braces, the first one is for the function parameter and 
+// the second one is for the function return type.
+// function createEmployee({id}:{id:number}):{id:number;isActive:boolean}{
+//     return{id, isActive: id % 2 === 0};
+
+// }
+
+// const first = createEmployee({id: 1});
+// const second = createEmployee({id: 2});
+// console.log(first, second);
+
+// // Alternative
+
+// function createStudent(student:{id:number; name:string}):void{
+//     console.log(`Welcome to the course, ${student.name.toUpperCase()}!!!`);
+
+// }
+
+// const newStudent = {
+//     id: 5,
+//     name: 'Masa',
+//     email: 'masa@gmail.comf'
+// };
+
+// createStudent(newStudent);
+// createStudent({id:1, name:'John', email: 'bobo@gmail.com'});
+
+
+// function processData(input: string | number, config: {reverse?: boolean}=
+//     // string | number is return type.
+//     {reverse: false}): string | number {
+//     if(typeof input === 'number'){
+//         return input*input;
+//     } else {
+//         return config.reverse? input.toUpperCase().split('').reverse().join('') 
+//         : input.toUpperCase();
+//     }
+
+// }
+
+// console.log(processData(10));
+// console.log(processData('Hello'));
+// console.log(processData('Hello', {reverse: true}));
+
+// Type Alias and Intersection Type
+// Type Alias allows us to create a new name for a type, which can be a primitive,
+//  an object, a union, or any other type.
+// export type User = { id: number; name: string; isActive: boolean }
+
+// const john: User = {
+//   id: 1,
+//   name: 'john',
+//   isActive: true,
+// };
+// const susan: User = {
+//   id: 1,
+//   name: 'susan',
+//   isActive: false,
+// };
+
+// function createUser(user: User): User {
+// } {
+//   console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+
+//   return user;
+// }
+// type StringOrNumber = string | number;
+
+// let value: StringOrNumber;
+// value = 'Hello';
+// value = 42;
+
+// type Theme = 'light' | 'dark';
+
+// let theme: Theme;
+// theme = 'light';
+// theme = 'dark';
+
+// function setTheme(t:Theme){
+//     theme = t;
+// }
+
+// setTheme('dark');
+
+// type Employee = {
+//     id: number;
+//     name: string;
+//     department: string;
+// }
+
+// type Manager = {id: number; name: string; employees: Employee[]}
+
+
+// type Staff = Employee | Manager;
+
+// function printStaffDetails(staff:Staff): void {
+//     if('employees' in staff){
+//         console.log(`${staff.name} is a manager, Department: ${staff.employees.length} employees`);
+//     } else {
+//         console.log(`${staff.name} is an employee, Employees: ${staff.department}`);
+//     }
+// }
+// const alice: Employee = {id:1, name: 'Alice', department: 'Sales'};
+// const steve: Employee = {id:2, name: 'Steve', department: 'HR'};
+
+
+// const bob: Manager = {id:1, name: 'Bob', employees: [alice, steve]};
+
+
+// printStaffDetails(alice);
+// printStaffDetails(steve);
+// printStaffDetails(bob);
+
+// type Book = { id: number; title: string; price: number};
+
+
+
+// const book1:Book = {
+//     id: 1,
+//     title: 'The Great Gatsby',
+//     price: 10, 
+// }
+
+// const book2:Book = {
+//     id: 2,
+//     title: 'To Kill a Mockingbird',
+//     price: 15, 
+// }
+
+// const discountedBook:Book & {discount: number} = {
+//     id: 3,
+//     title: 'To Kill a Mockingbird',
+//     price: 12, 
+//     discount:0.15,
+// }
+
+// const propName = 'age';
+
+// type Animal = {
+//     [propName]: number;
+// }
+
+// let tiger = {[propName]: 5};
+
+// Interface - Fundamentals
+
+
+// interface Book {
+//     readonly isbn:number;
+//     title:string;
+//     author:string;
+//     genre?:string;
+//     //  method
+//     printAuthor(): void;
+//     printTitle(message: string): string;
+//     printSomething: (someValue: number) => number;
+// }
+
+
+//  const deepWork: Book = {
+//     isbn: 123,
+//     title: 'deep work',
+//     author: 'cal Newport',
+//     genre: 'self-help',
+//     // printAuthor(){
+//     //     console.log(this.author);
+//     // },
+//     printTitle(message){
+//         return `${this.title} ${message}`;
+//     },
+//     // first option
+//     printSomething:function (someValue) {
+//         return someValue;
+//     },
+//     // second option
+//     // printSomething(someValue){
+//     //     console.log(deepWork.author);
+//     //     return someValue;
+//     // }
+//     // third option
+//     // printSomething(someValue){
+//     //     return someValue;
+//     // }
+//     printAuthor:() => {
+//         console.log(deepWork.author);
+//     },
+//  }
+
+//  console.log(deepWork.printSomething(134));
+//  deepWork.printAuthor();
+
+interface Computer{
+    readonly id:number;
+    brand:string;
+    ram:number;
+    upgradeRam(newRam:number): number;
+    storage?: number;
+    
+}
+
+const laptop:Computer = {
+    id:1,
+    brand: 'random brand',
+    ram: 8,
+    upgradeRam(amount){
+        this.ram += amount;
+        return this.ram;
+    },
+};
+
+laptop.storage = 256;
+
+console.log(laptop.upgradeRam(4));
+console.log(laptop);
