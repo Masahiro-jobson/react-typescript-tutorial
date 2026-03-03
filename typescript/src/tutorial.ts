@@ -413,26 +413,141 @@
 //  console.log(deepWork.printSomething(134));
 //  deepWork.printAuthor();
 
-interface Computer{
-    readonly id:number;
-    brand:string;
-    ram:number;
-    upgradeRam(newRam:number): number;
-    storage?: number;
+// Interface Foundamentals
+// interface Computer{
+//     readonly id:number;
+//     brand:string;
+//     ram:number;
+//     upgradeRam(newRam:number): number;
+//     storage?: number;
     
+// }
+
+// const laptop:Computer = {
+//     id:1,
+//     brand: 'random brand',
+//     ram: 8,
+//     upgradeRam(amount){
+//         this.ram += amount;
+//         return this.ram;
+//     },
+// };
+
+// laptop.storage = 256;
+
+// console.log(laptop.upgradeRam(4));
+// console.log(laptop);
+
+// Interface Advanceed
+// interface Person {
+//     name: string;
+//     getDetails(): string;
+// }
+
+// interface DogOwner {
+//     dogName: string;
+//     getDogDetails(): string;
+// }
+
+// interface Person {
+//     age: number;
+// }
+
+// const person: Person = {
+//     name: 'Masa',
+//     age: 30,
+//     getDetails() {
+//         return `Name: ${this.name}, Age: ${this.age}`;
+//     },
+// };
+// const employee: Employee = {
+//     name: 'Max',
+//     age: 28,
+//     employeeId: 12345,
+//     getDetails() {
+//         return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`;
+//     },
+// };
+
+// interface Employee extends Person{
+//     employeeId: number;
+// }
+
+
+// console.log(employee.getDetails());
+
+
+// interface Manager extends Person, DogOwner{
+//     managePeople():void;
+// }
+
+// const manager:Manager = {
+//     name: 'bob',
+//     age: 40,
+//     dogName: 'Rex',
+//     getDetails() {
+//         return `Name: ${this.name}, Age: ${this.age}`;
+//     },
+//     getDogDetails() {
+//         return `Dog Name: ${this.dogName}`;
+//     },
+//     managePeople(){
+//         console.log(`Managing people...`);
+//     }
+// }
+
+// manager.managePeople();
+
+function getEmployee():Person | DogOwner | Manager {
+    const random = Math.random()
+    if(random < 0.33){
+        return {
+            name: 'Masa',
+        }
+    } else if(random < 0.66){
+        return {
+            name: 'John',
+            dogName: 'Max',
+        }
+    } else {
+        return {
+            name: 'bob',
+            managePeople() {
+                console.log(`Managing people...`);
+            },
+            delegateTasks() {
+                console.log(`Delegating tasks...`);
+            }
+        }
+    }
 }
 
-const laptop:Computer = {
-    id:1,
-    brand: 'random brand',
-    ram: 8,
-    upgradeRam(amount){
-        this.ram += amount;
-        return this.ram;
-    },
+interface Person{
+    name: string;
+}
+
+interface DogOwner extends Person{
+    dogName: string;
+}
+
+interface Manager extends Person, DogOwner{
+    managePeople(): void;
+    delegateTasks(): void;
+}
+
+const employee: Person | DogOwner | Manager = getEmployee();
+console.log(employee);
+
+function isManager(obj: Person | DogOwner | Manager): obj is Manager{
+    return 'managePeople' in obj;
 };
 
-laptop.storage = 256;
+if (isManager(employee)){
+    employee.delegateTasks();
+}
 
-console.log(laptop.upgradeRam(4));
-console.log(laptop);
+// Interface vs Type Alias
+// Interface and Type Alias are both used to define custom types in TypeScript, 
+// but they have some differences.
+// Interface is used to define the shape of an object, 
+// while Type Alias can be used to define a type for any kind of value, including primitives, unions, and intersections.
